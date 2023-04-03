@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCC Front End</title>
+    <style>
+      /* Center the header */
+      header {
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 30px;
+      }
+      
+      /* Add some style to the header */
+      h1 {
+        font-size: 3em;
+        color: #333;
+        text-shadow: 2px 2px #ccc;
+      }
+
+      /* Add some style to the table */
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      th, td {
+        text-align: left;
+        padding: 12px;
+      }
+      th {
+        background-color: #333;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>DCC Front End</h1>
+    </header>
+
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Given Name</td>
+            <td><%= givenName %></td>
+          </tr>
+          <tr>
+            <td>Last Name</td>
+            <td><%= surname %></td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td><%= email %></td>
+          </tr>
+          <tr>
+            <td>Issuer User ID</td>
+            <td><%= issuerUserId %></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>

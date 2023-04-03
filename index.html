@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Azure B2C App</title>
+  <style>
+    /* Set a nice background color */
+    body {
+      background-color: #f8f8f8;
+    }
+
+    /* Center the content on the page */
+    .container {
+      margin: 0 auto;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    /* Add some style to the heading */
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    /* Add some style to the buttons */
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #007bff;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #0069d9;
+    }
+
+    /* Add some style to the response container */
+    #response {
+      padding: 20px;
+      border-radius: 4px;
+      background-color: #fff;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>My Azure B2C App</h1>
+    <div class="btn-container">
+      <button onclick="loginWithLocalAccount()">Log in</button>
+      <button onclick="loginWithRealMe()">RealMe Login</button>
+    </div>
+    <div id="response"></div>
+  <script>
+    const tenantName = 'unityitorg';
+    const policyName = 'B2C_1_LocalAccounts';
+    const RealMepolicyName = 'B2C_1A_SIGNUPSIGNINREALMELOGIN';
+    const clientId = '31a25521-3398-4430-b6a3-5653173d90a6';
+    const clientIdLocal='1fd606a3-61ec-4e2e-ad5e-534c99c8aa91';
+    const redirectUri = 'http://localhost:3000/redirect';
+    const redirectLocal='http://localhost:3000/redirectLocal';
+
+    function loginWithLocalAccount() {
+      // Redirect the user to the Azure B2C login page
+      const url = `https://${tenantName}.b2clogin.com/${tenantName}.onmicrosoft.com/${policyName}/oauth2/v2.0/authorize?client_id=${clientIdLocal}&redirect_uri=${redirectLocal}&scope=openid&response_mode=query&response_type=id_token&prompt=login`;
+      window.location.href = url;
+    }
+
+    function loginWithRealMe() {
+      // Redirect the user to the Azure B2C sign-up page
+      const url = `https://${tenantName}.b2clogin.com/${tenantName}.onmicrosoft.com/${RealMepolicyName}/oauth2/v2.0/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_mode=query&scope=openid&response_type=id_token&prompt=login`;
+      window.location.href = url;
+    }
+
+  </script>
+</body>
+</html>
