@@ -75,7 +75,7 @@ app.get('/redirectLocal', (req, res) => {
   res.render('params', { email: email, givenName: givenName,surname: surname,issuerUserId: issuerUserId });
 });
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
