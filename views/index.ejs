@@ -85,7 +85,7 @@
 
     function loginWithRealMe() {
       // Redirect the user to the Azure B2C sign-up page
-      const url = `https://${tenantName}.b2clogin.com/${tenantName}.onmicrosoft.com/${RealMepolicyName}/oauth2/v2.0/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_mode=query&scope=openid&response_type=id_token&prompt=login`;
+      const url = `https://${tenantName}.b2clogin.com/${tenantName}.onmicrosoft.com/${RealMepolicyName}/oauth2/v2.0/authorize?client_id=${clientId}&nonce=defaultNonce&redirect_uri=${redirectUri}&response_mode=query&scope=openid&response_type=id_token&prompt=login`;
       window.location.href = url;
     }
 
